@@ -24,6 +24,13 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+<<<<<<< HEAD
+=======
+vars:
+   target_db: GLUEDB
+   target_schema: PUBLIC
+   stage_name: GLUEDB.PUBLIC.GLUE_S3_STAGE
+>>>>>>> 81eb5abd312326dede3c98ed524a176ee123f980
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -34,9 +41,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 # instead be materialized as tables. Any models you add to the root of the models folder will 
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
+<<<<<<< HEAD
 
 models:
   my_new_project:
     # Applies to all files under models/example/
     example:
       +materialized: table
+=======
+>>>>>>> 81eb5abd312326dede3c98ed524a176ee123f980
