@@ -1,0 +1,10 @@
+version: 2
+sources:
+    - name: source
+      database: WALMART
+      # Change the schema name to BRONZE for Production 
+      schema: WALMART_TEST_RAW
+      tables:
+        - name: departments
+        - name: stores
+        - name: fact
