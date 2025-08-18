@@ -1,9 +1,10 @@
 {{ config(
     materialized='incremental',
     unique_key=['store_id', 'dept_id'],
-    schema='walmart_test_staging',
+    schema='walmart_staging',
     alias='transform_store_dim' ,
-    incremental_strategy='merge'
+    incremental_strategy='merge',
+    pre_hook="{{ macros_copy_stores_csv('STORES') }}"
 ) }}
 -- 1. Base source data
 With sourceData as (

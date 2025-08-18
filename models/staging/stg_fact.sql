@@ -1,6 +1,6 @@
 {{ config(
     materialized='view',
-    schema='walmart_test_staging'
+    schema='walmart_staging'
 ) }}
 
 SELECT

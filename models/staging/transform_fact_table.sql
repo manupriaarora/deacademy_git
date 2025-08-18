@@ -1,8 +1,9 @@
 {{ config(
     materialized='table',
     unique_key=['date_id', 'store_id', 'dept_id'],
-    schema='walmart_test_staging',
-    alias='transform_fact_table'
+    schema='walmart_staging',
+    alias='transform_fact_table',
+    pre_hook="{{ macros_copy_fact_csv('FACT') }}"
 ) }}
 -- 1. Latest dimension data
 With LatestStores AS (
@@ -23,11 +24,6 @@ LatestDepartments AS (
     ) t
     WHERE rn = 1
 ),
--- 2.Use all fact rows, not just the latest
-{# AllFact AS (
-    SELECT *
-    FROM {{ ref('stg_fact') }}
-), #}
 -- 2. Latest fact data
 LatestFact AS (
     SELECT *

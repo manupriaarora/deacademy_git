@@ -1,13 +1,9 @@
-{{ config(
-    materialized='view',
-    schema='walmart_test_staging'
-) }}
-Select
-    CAST(STORE_ID AS INTEGER) AS store_id, 
-    CAST(DEPARTMENT_ID AS INTEGER) AS dept_id,
-    CAST(STORE_DATE AS DATE) AS store_date,
-    CAST(WEEKLY_SALES AS DECIMAL(20, 2)) AS store_weekly_sales,
-    IS_HOLIDAY,
+{{ config(materialized="view", schema="walmart_staging") }}
+select
+    cast(store_id as integer) as store_id,
+    cast(department_id as integer) as dept_id,
+    cast(store_date as date) as store_date,
+    cast(weekly_sales as decimal(20, 2)) as store_weekly_sales,
+    is_holiday,
     insert_date
-from {{ source('source', 'departments') }}
-
+from {{ source("source", "departments") }}

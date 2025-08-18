@@ -1,6 +1,6 @@
 {{ config(
     materialized='view',
-    schema='walmart_test_mart',
+    schema='walmart_mart',
     alias='walmart_date_dim'
 ) }}
 

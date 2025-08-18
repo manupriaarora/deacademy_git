@@ -1,7 +1,7 @@
 {{ config(
     materialized='incremental',
     unique_key='date_id',
-    schema='walmart_test_staging',
+    schema='walmart_staging',
     alias='transform_date_dim',
     incremental_strategy='merge'
 ) }}
