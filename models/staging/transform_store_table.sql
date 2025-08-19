@@ -3,8 +3,7 @@
     unique_key=['store_id', 'dept_id'],
     schema='walmart_staging',
     alias='transform_store_dim' ,
-    incremental_strategy='merge',
-    pre_hook="{{ macros_copy_stores_csv('STORES') }}"
+    incremental_strategy='merge'
 ) }}
 -- 1. Base source data
 With sourceData as (

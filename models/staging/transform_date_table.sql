@@ -3,8 +3,7 @@
     unique_key='date_id',
     schema='walmart_staging',
     alias='transform_date_dim',
-    incremental_strategy='merge',
-    pre_hook="{{ macros_copy_dpts_csv('DEPARTMENTS') }}"
+    incremental_strategy='merge'
 ) }}
 -- 1. Get distinct dates
 With DistinctDates as (

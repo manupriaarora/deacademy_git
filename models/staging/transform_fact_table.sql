@@ -2,8 +2,7 @@
     materialized='table',
     unique_key=['date_id', 'store_id', 'dept_id'],
     schema='walmart_staging',
-    alias='transform_fact_table',
-    pre_hook="{{ macros_copy_fact_csv('FACT') }}"
+    alias='transform_fact_table'
 ) }}
 -- 1. Latest dimension data
 With LatestStores AS (
